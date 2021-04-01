@@ -111,7 +111,7 @@ var map = [
   
   
   
-/*function control(direction) { 
+function control(direction) { 
   if (acting == false) {
     acting = true
     switch (direction) {
@@ -153,7 +153,7 @@ var map = [
         break;
     };
   };
-};*/
+};
 
 function checkColliders() {
   playerMapCoords = map[player.actY/25][player.actX/25];
@@ -198,7 +198,7 @@ function alertInfo() {
 
 //Style
   //Animation
-/*function animatePlayerDown() {
+function animatePlayerDown() {
   if (player.posY < player.actY) {
     player.posY += 5;
     box.style.top = player.posY + 'px';
@@ -237,7 +237,7 @@ function animatePlayerLeft() {
     acting = false;
     interactObject();
   };
-};*/
+};
   //Animations
   
   //Render
