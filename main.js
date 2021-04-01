@@ -159,7 +159,8 @@ function animatePlayerLeft() {
     this.div = document.createElement('div')
     container.appendChild(this.div)
     let style = this.div.style
-    style.background = 'url("Images/images (55).jpeg")'
+    //style.background = 'url("Images/images (55).jpeg")'
+    style.backgroundColor = '#9F9F9F'
     style.width = '40px'
     style.height = '40px'
     style.top = (mapY * 40) + 'px'
