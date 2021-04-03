@@ -49,6 +49,7 @@ function moveObject (objToMove, axisToMoveOn, directionToMoveTo/* 1or-1*/) {
             objToMove.htmlStyleEquiv.style.left = objToMove.styleXY[0] + 'px'
             if (objToMove.styleXY[0] == (objToMove.actXY[0] * 25)) {
               clearInterval(animationInterval)
+              objToMove.htmlStyleEquiv.style.left = ((objToMove.actXY[0]*25) - 2) + 'px'
               objToMove.acting = false
             }
           }, 20)
@@ -65,6 +66,7 @@ function moveObject (objToMove, axisToMoveOn, directionToMoveTo/* 1or-1*/) {
             objToMove.htmlStyleEquiv.style.top = objToMove.styleXY[1] + 'px'
             if (objToMove.styleXY[1] == (objToMove.actXY[1]*25)) {
               clearInterval(animationInterval)
+              objToMove.htmlStyleEquiv.style.top = ((objToMove.actXY[1]*25) - 1) + 'px'
               objToMove.acting = false
             }
           }, 20)
@@ -215,14 +217,14 @@ function animatePlayerLeft() {
     this.div = document.createElement('div')
     container.appendChild(this.div)
     let style = this.div.style
-    //style.background = 'url("Images/images (55).jpeg")'
+    style.background = 'url("Images/Wall.png")'
     style.backgroundColor = '#B8B8B8'
     style.width = '25px'
     style.height = '25px'
     style.top = (mapY * 25) + 'px'
     style.left = (mapX * 25) + 'px'
     style.position = 'absolute'
-    style.border = '1px solid black'
+    //style.border = '1px solid black'
   };
   
   
