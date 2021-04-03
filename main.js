@@ -1,76 +1,84 @@
 //Setup
-var playerMapCoords;
+//var playerMapCoords;
 var actObject= [/*type, playerMapCoords*/];
-var acting = false;
-let player = {
-  posX: 0,
-  posY: 0,
-  actX: 0,
-  actY: 0
+//var acting = false;
+var movementBoundaries = {
+  minXY: [0,0], 
+  maxXY: [12,15], 
+}
+let objMainPlayer = {
+  actXY: [6,1], 
+  styleXY: [150,25], 
+  acting: false, 
+  htmlStyleEquiv: divMainPlayer
 };
 var interval;
 var map = [
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,2,0], 
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,1,0,0,0,0,0], 
-  [0,0,0,0,0,0,0]
+  [0,0,0,0,0,0,0,0,0,0,0,0,2],
+  [0,0,0,0,0,0,0,0,0,2,0,0,0], 
+  [0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,1,1,1,1,1,0,1,0,0,0,0,0],
+  [0,1,0,0,0,1,0,1,0,0,0,0,0],
+  [0,1,0,0,0,1,0,1,0,0,0,0,0],
+  [0,1,0,0,0,0,0,1,0,0,0,0,0],
+  [0,1,1,1,1,1,0,1,0,0,0,0,0], 
+  [0,1,0,0,0,0,0,1,0,0,0,0,0],
+  [0,1,0,0,0,1,0,1,0,0,0,0,0],
+  [0,1,1,1,1,1,1,1,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,0,0,0,0,0,2]
   ];
 //Setup
 
 //Logic
   //Movement
-function control(direction) { 
-  if (acting == false) {
-    acting = true
-    switch (direction) {
+  
+function moveObject (objToMove, axisToMoveOn, directionToMoveTo/* 1or-1*/) {
+  if (objToMove.acting == false) {
+    objToMove.acting = true
+    let animationInterval;
+    switch (axisToMoveOn) {
+      case 0:
+        objToMove.actXY[0] += directionToMoveTo
+        if ((objToMove.actXY[0] <= movementBoundaries.maxXY[0] && objToMove.actXY[0] >= movementBoundaries.minXY[0]) && (checkColliders(objToMove.actXY))  ) {
+          animationInterval = setInterval(() => {
+            objToMove.styleXY[0] += directionToMoveTo * 5;
+            objToMove.htmlStyleEquiv.style.left = objToMove.styleXY[0] + 'px'
+            if (objToMove.styleXY[0] == (objToMove.actXY[0] * 25)) {
+              clearInterval(animationInterval)
+              objToMove.acting = false
+            }
+          }, 20)
+        } else {
+          objToMove.actXY[0] -= directionToMoveTo
+          objToMove.acting = false
+        }
+        break;
       case 1:
-        player.actY -= 40;
-        if (player.posY > 0 && checkColliders()) {
-          interval = setInterval(animatePlayerUp, 20);
+        objToMove.actXY[1] += directionToMoveTo
+        if ((objToMove.actXY[1] <= movementBoundaries.maxXY[1] && objToMove.actXY[1] >= movementBoundaries.minXY[1]) && (checkColliders(objToMove.actXY)) ) {
+          animationInterval = setInterval(()=>{
+          objToMove.styleXY[1] += directionToMoveTo * 5;
+            objToMove.htmlStyleEquiv.style.top = objToMove.styleXY[1] + 'px'
+            if (objToMove.styleXY[1] == (objToMove.actXY[1]*25)) {
+              clearInterval(animationInterval)
+              objToMove.acting = false
+            }
+          }, 20)
         } else {
-          player.actY += 40;
-          acting = false;
-        };
+          objToMove.actXY[1] -= directionToMoveTo
+          objToMove.acting = false
+        }
         break;
-      case 2:
-        player.actX -= 40;
-        if (player.posX > 0 && checkColliders()) {
-          interval = setInterval(animatePlayerLeft,20);
-        } else {
-          player.actX += 40;
-          acting = false;
-        };
-        break;
-      case 3:
-        player.actY += 40;
-        if (player.posY < 360 && checkColliders()) {
-          interval = setInterval(animatePlayerDown,20);
-        } else {
-          player.actY -= 40;
-          acting = false;
-        };
-        break;
-      case 4:
-        player.actX += 40;
-        if (player.posX < 240 && checkColliders()) {
-          interval = setInterval(animatePlayerRight,20);
-        } else {
-          player.actX -= 40;
-          acting = false;
-        };
-        break;
-    };
-  };
-};
-
-function checkColliders() {
-  playerMapCoords = map[player.actY/40][player.actX/40];
+    }
+  }
+} 
+  
+function checkColliders (objActXY) {
+  let playerMapCoords = map[objActXY[1]][objActXY[0]];
   switch (playerMapCoords) {
     case 0:
       return true;
@@ -88,14 +96,62 @@ function checkColliders() {
       break;
   };
 };
+  
+  
+  
+/*function control(direction) { 
+  if (acting == false) {
+    acting = true
+    switch (direction) {
+      case 1:
+        player.actY -= 25;
+        if (player.posY > 0 && checkColliders()) {
+          interval = setInterval(animatePlayerUp, 20);
+        } else {
+          player.actY += 25;
+          acting = false;
+        };
+        break;
+      case 2:
+        player.actX -= 25;
+        if (player.posX > 0 && checkColliders()) {
+          interval = setInterval(animatePlayerLeft,20);
+        } else {
+          player.actX += 25;
+          acting = false;
+        };
+        break;
+      case 3:
+        player.actY += 25;
+        if (player.posY < 375 && checkColliders()) {
+          interval = setInterval(animatePlayerDown,20);
+        } else {
+          player.actY -= 25;
+          acting = false;
+        };
+        break;
+      case 4:
+        player.actX += 25;
+        if (player.posX < 300 && checkColliders()) {
+          interval = setInterval(animatePlayerRight,20);
+        } else {
+          player.actX -= 25;
+          acting = false;
+        };
+        break;
+    };
+  };
+};*/
+
+
   //Movement
   
   //Actions
   function interactObject() {
     switch (actObject[0]) {
       case 2:
-        map[player.actY/40][player.actX/40] = 1;
-        new collider(player.actY/40,player.actX/40)
+        map[player.actY/25][player.actX/25] = 1;
+        new collider(player.actY/25,player.actX/25)
         break;
       default:
         break;
@@ -105,16 +161,16 @@ function checkColliders() {
   
   //Miscellaneous 
 function alertInfo() {
-  alert("No Copyright infringement intended; Credits to Francis Aldave(Kiko) for sprites; Programmed and designed by Lejionnaire (OmegaCool)")
+  alert("No Copyright infringement intended; Programmed and designed by Lejionnaire (OmegaCool)")
 };
   //Miscellaneous 
 //Logic
 
 //Style
   //Animation
-function animatePlayerDown() {
+/*function animatePlayerDown() {
   if (player.posY < player.actY) {
-    player.posY += 10;
+    player.posY += 5;
     box.style.top = player.posY + 'px';
   } else {
     clearInterval(interval);
@@ -124,7 +180,7 @@ function animatePlayerDown() {
 };
 function animatePlayerUp() {
   if (player.posY > player.actY) {
-    player.posY -= 10;
+    player.posY -= 5;
     box.style.top = player.posY + 'px';
   } else {
     clearInterval(interval );
@@ -134,7 +190,7 @@ function animatePlayerUp() {
 };
 function animatePlayerRight() {
   if (player.posX < player.actX ) {
-    player.posX += 10;
+    player.posX += 5;
     box.style.left = player.posX + 'px';
   } else {
     clearInterval(interval);
@@ -144,14 +200,14 @@ function animatePlayerRight() {
 };
 function animatePlayerLeft() {
   if (player.posX > player.actX ) {
-    player.posX -= 10;
+    player.posX -= 5;
     box.style.left = player.posX + 'px';
   } else {
     clearInterval(interval);
     acting = false;
     interactObject();
   };
-};
+};*/
   //Animations
   
   //Render
@@ -160,11 +216,11 @@ function animatePlayerLeft() {
     container.appendChild(this.div)
     let style = this.div.style
     //style.background = 'url("Images/images (55).jpeg")'
-    style.backgroundColor = '#9F9F9F'
-    style.width = '40px'
-    style.height = '40px'
-    style.top = (mapY * 40) + 'px'
-    style.left = (mapX * 40) + 'px'
+    style.backgroundColor = '#B8B8B8'
+    style.width = '25px'
+    style.height = '25px'
+    style.top = (mapY * 25) + 'px'
+    style.left = (mapX * 25) + 'px'
     style.position = 'absolute'
     style.border = '1px solid black'
   };
@@ -179,17 +235,18 @@ window.onload = () => {
           new collider(i, indx)
           break;
         case 2:
-          new function object() {
+          new function renderObject1() {
             this.div = document.createElement('div')
             container.appendChild(this.div)
             let style = this.div.style
             style.background = 'red'
-            style.width = '40px'
-            style.height = '40px'
-            style.top = (i * 40) + 'px'
-            style.left = (indx * 40) + 'px'
+            style.width = '25px'
+            style.height = '25px'
+            style.top = (i * 25) + 'px'
+            style.left = (indx * 25) + 'px'
             style.position = 'absolute'
             style.border = '1px solid black'
+            style.borderRadius = `13px`
           };
           break;  
       };
@@ -198,5 +255,6 @@ window.onload = () => {
 };
   //Render
 //Style
+
 
 

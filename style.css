@@ -2,24 +2,26 @@ body {
     background-color: #12131A;
 }
 #container {
-  width: 280px ;
-  height: 400px;
+  width: 328px ;
+  height: 403px;
   margin: auto;
   border: 5px solid white;
-  /*background-color: #40BD40;*/
-  background-image: url("Images/grass.jpeg");
+  background-color: #3BA621;
+  /*background-image: url("Images/grass.jpeg");*/
   position: relative;
   /*clip-path: circle(50%);
   /*-webkit-mask-clip: circle(50%);*/
 }
-#box {
+#divMainPlayer {
+  top: 25px;
+  left: 150px;
   position: absolute;
-  height: 40px;
-  width: 40px;
- /*background-color: #FF0000;*/
-  background-image: url("Images/Cola.png");
-  border-radius: 10px;
-  /*border: 2px solid black;*/
+  height: 25px;
+  width: 25px;
+  background-color: #52B5F0;
+  /*background-image: url("Images/Cola.png");*/
+  border-radius: 7px;
+  border: 1.5px solid black;
 }
 #controls button {
   margin: 2px;
@@ -33,4 +35,6 @@ body :last-child div {
   height: 25px;
   width: 25px ;
 }
+
+
 
