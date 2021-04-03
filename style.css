@@ -11,7 +11,7 @@ body {
   background-color: #3BA621;
   /*background-image: url("Images/grass.jpeg");*/
   position: relative;
-  /*clip-path: circle(50%);
+  clip-path: circle(70%);
   /*-webkit-mask-clip: circle(50%);*/
 }
 #divMainPlayer {
