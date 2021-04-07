@@ -1,6 +1,6 @@
 //Setup
-//var playerMapCoords;
-var actObject= [/*type, playerMapCoords*/];
+//var playerlevelMapCoords;
+var actObject= [/*type, playerlevelMapCoords*/];
 //var acting = false;
 var movementBoundaries = {
   minXY: [0,0], 
@@ -10,10 +10,11 @@ let objMainPlayer = {
   actXY: [6,1], 
   styleXY: [150,25], 
   acting: false, 
+  objInteraction: [], 
   htmlStyleEquiv: divMainPlayer
 };
 var interval;
-var map = [
+var levelMap = [
   [0,0,0,0,0,0,0,0,0,0,0,0,2],
   [0,0,0,0,0,0,0,0,0,2,0,0,0], 
   [0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -80,7 +81,7 @@ function moveObject (objToMove, axisToMoveOn, directionToMoveTo/* 1or-1*/) {
 } 
   
 function checkColliders (objActXY) {
-  let playerMapCoords = map[objActXY[1]][objActXY[0]];
+  let playerMapCoords = levelMap[objActXY[1]][objActXY[0]];
   switch (playerMapCoords) {
     case 0:
       return true;
@@ -98,6 +99,7 @@ function checkColliders (objActXY) {
       break;
   };
 };
+  
   
   
   
@@ -152,8 +154,8 @@ function checkColliders (objActXY) {
   function interactObject() {
     switch (actObject[0]) {
       case 2:
-        map[player.actY/25][player.actX/25] = 1;
-        new collider(player.actY/25,player.actX/25)
+        levelMap[player.actY/25][player.actX/25] = 1;
+        new createColliderWall(player.actY/25,player.actX/25)
         break;
       default:
         break;
@@ -213,7 +215,7 @@ function animatePlayerLeft() {
   //Animations
   
   //Render
-  function collider(mapY, mapX) {
+  function createColliderWall(mapY, mapX) {
     this.div = document.createElement('div')
     container.appendChild(this.div)
     let style = this.div.style
@@ -230,11 +232,11 @@ function animatePlayerLeft() {
   
   
 window.onload = () => {
-  for (let i in map) {
-    map[i].forEach((val, indx) => {
+  for (let i in levelMap) {
+    levelMap[i].forEach((val, indx) => {
       switch (val) {
         case 1:
-          new collider(i, indx)
+          new createColliderWall(i, indx)
           break;
         case 2:
           new function renderObject1() {
