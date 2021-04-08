@@ -1,7 +1,8 @@
 //Setup
-//var playerlevelMapCoords;
+
+
 var actObject = [ /*type, playerlevelMapCoords*/ ];
-//var acting = false;
+
 var movementBoundaries = {
   minXY: [0, 0],
   maxXY: [12, 15],
@@ -10,17 +11,16 @@ let objMainPlayer = {
   actXY: [6, 1],
   styleXY: [150, 25],
   acting: false,
-  objInteraction: [],
+  //objInteractionType: [],
   htmlStyleEquiv: divMainPlayer
 };
-//var interval;
+
 
 //Setup
 
 //Logic
 //Movement
-
-function moveObject(objToMove, axisToMoveOn, directionToMoveTo /* 1or-1*/ ) {
+function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
   if (objToMove.acting == false) {
     objToMove.acting = true
     let animationInterval;
@@ -62,7 +62,6 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo /* 1or-1*/ ) {
     }
   }
 }
-
 function checkColliders(objActXY) {
   let playerMapCoords = levelMap[objActXY[1]][objActXY[0]];
   switch (playerMapCoords) {
