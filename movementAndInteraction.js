@@ -11,7 +11,7 @@ let objMainPlayer = {
   actXY: [6, 1],
   styleXY: [150, 25],
   acting: false,
-  //objInteractionType: [],
+ // objInteractionType: [],
   htmlStyleEquiv: divMainPlayer
 };
 
@@ -33,7 +33,7 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
             objToMove.htmlStyleEquiv.style.left = objToMove.styleXY[0] + 'px'
             if (objToMove.styleXY[0] == (objToMove.actXY[0] * 25)) {
               clearInterval(animationInterval)
-              objToMove.htmlStyleEquiv.style.left = ((objToMove.actXY[0] * 25) - 2) + 'px'
+              objToMove.htmlStyleEquiv.style.left = ((objToMove.actXY[0] * 25) - 1) + 'px'
               objToMove.acting = false
             }
           }, 20)
