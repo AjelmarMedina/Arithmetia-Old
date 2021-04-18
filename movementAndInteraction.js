@@ -82,6 +82,13 @@ function checkColliders(objActXY) {
   };
 };
 
+function selectInteractionType(objInteractor, objPosXY, objInteractionType) {
+  // body...
+}
+function interactObjType2(objInteractor, objPosXY) {
+  // body...
+}
+
 
 
 
