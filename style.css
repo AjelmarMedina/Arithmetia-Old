@@ -37,6 +37,12 @@ body :last-child div {
   height: 25px;
   width: 25px ;
 }
-
+#infoButton {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  left: 10px;
+  bottom: 15px ;
+}
 
 
