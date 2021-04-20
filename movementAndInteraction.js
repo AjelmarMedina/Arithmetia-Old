@@ -27,7 +27,7 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
     switch (axisToMoveOn) {
       case 0:
         objToMove.actXY[0] += directionToMoveTo
-        if ((objToMove.actXY[0] <= movementBoundaries.maxXY[0] && objToMove.actXY[0] >= movementBoundaries.minXY[0]) && (checkColliders(objToMove.actXY))) {
+        if ((objToMove.actXY[0] <= movementBoundaries.maxXY[0] && objToMove.actXY[0] >= movementBoundaries.minXY[0]) && (checkColliders(objToMove))) {
           animationInterval = setInterval(() => {
             objToMove.styleXY[0] += directionToMoveTo * 5;
             objToMove.htmlStyleEquiv.style.left = objToMove.styleXY[0] + 'px'
@@ -44,7 +44,7 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
         break;
       case 1:
         objToMove.actXY[1] += directionToMoveTo
-        if ((objToMove.actXY[1] <= movementBoundaries.maxXY[1] && objToMove.actXY[1] >= movementBoundaries.minXY[1]) && (checkColliders(objToMove.actXY))) {
+        if ((objToMove.actXY[1] <= movementBoundaries.maxXY[1] && objToMove.actXY[1] >= movementBoundaries.minXY[1]) && (checkColliders(objToMove))) {
           animationInterval = setInterval(() => {
             objToMove.styleXY[1] += directionToMoveTo * 5;
             objToMove.htmlStyleEquiv.style.top = objToMove.styleXY[1] + 'px'
@@ -62,8 +62,8 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
     }
   }
 }
-function checkColliders(objActXY) {
-  let playerMapCoords = levelMap[objActXY[1]][objActXY[0]];
+function checkColliders(objToCheck) {
+  let playerMapCoords = levelMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
   switch (playerMapCoords) {
     case 0:
       return true;
