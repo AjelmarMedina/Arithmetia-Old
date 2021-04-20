@@ -11,7 +11,7 @@ let objMainPlayer = {
   actXY: [6, 1],
   styleXY: [150, 25],
   acting: false,
- // objInteractionType: [],
+  interactionType: undefined,
   htmlStyleEquiv: divMainPlayer
 };
 
@@ -66,27 +66,32 @@ function checkColliders(objToCheck) {
   let playerMapCoords = levelMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
   switch (playerMapCoords) {
     case 0:
+      //console.log('Case 0!');
       return true;
       break;
     case 1:
+      //console.log('you\'ve hit a Wall!');
       return false;
       break;
     case 2:
-      actObject = [2, playerMapCoords];
+      objToCheck.interactionType = interactObjType2
+      console.log(objToCheck.interactionType);
       return true;
       break;
 
     default:
+      console.log('default???');
       return true;
       break;
   };
 };
 
-function selectInteractionType(objInteractor, objPosXY, objInteractionType) {
+function selectInteractionType(objInteractor) {
   // body...
 }
-function interactObjType2(objInteractor, objPosXY) {
-  // body...
+function interactObjType2(objInteractor) {
+  console.log(objInteractor);
+  console.log('victory');
 }
 
 
