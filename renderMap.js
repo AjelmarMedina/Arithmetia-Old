@@ -4,6 +4,7 @@ function createColliderWall(mapX, mapY) {
   container.appendChild(this.div)
   let style = this.div.style
   //style.background = 'url("Images/Wall.png")'
+  style.zIndex = 0
   style.backgroundColor = '#B8B8B8'
   style.width = '25px'
   style.height = '25px'

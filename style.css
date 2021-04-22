@@ -15,6 +15,7 @@ body {
   /*-webkit-mask-clip: circle(50%);*/
 }
 #divMainPlayer {
+  z-index: 1;
   top: 24px;
   left: 149px;
   position: absolute;
