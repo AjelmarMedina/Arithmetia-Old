@@ -34,6 +34,7 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
             if (objToMove.styleXY[0] == (objToMove.actXY[0] * 25)) {
               clearInterval(animationInterval)
               objToMove.htmlStyleEquiv.style.left = ((objToMove.actXY[0] * 25) - 1) + 'px'
+              interactObject(objToMove)
               objToMove.acting = false
             }
           }, 20)
@@ -51,6 +52,7 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
             if (objToMove.styleXY[1] == (objToMove.actXY[1] * 25)) {
               clearInterval(animationInterval)
               objToMove.htmlStyleEquiv.style.top = ((objToMove.actXY[1] * 25) - 1) + 'px'
+              interactObject(objToMove)
               objToMove.acting = false
             }
           }, 20)
@@ -66,32 +68,32 @@ function checkColliders(objToCheck) {
   let playerMapCoords = levelMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
   switch (playerMapCoords) {
     case 0:
-      //console.log('Case 0!');
       return true;
       break;
     case 1:
-      //console.log('you\'ve hit a Wall!');
       return false;
       break;
     case 2:
       objToCheck.interactionType = interactObjType2
-      console.log(objToCheck.interactionType);
+
       return true;
       break;
 
     default:
-      console.log('default???');
       return true;
       break;
   };
 };
 
-function selectInteractionType(objInteractor) {
-  // body...
+function interactObject(objInteractor) {
+  if (objInteractor.interactionType != undefined) {
+    objInteractor.interactionType(objInteractor)
+  }
 }
 function interactObjType2(objInteractor) {
-  console.log(objInteractor);
-  console.log('victory');
+  //levelMap[objInteractor.actXY[0]][objInteractor.actXY[1]] = 1
+  new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
+  
 }
 
 
@@ -145,6 +147,7 @@ function interactObjType2(objInteractor) {
 //Movement
 
 //Actions
+/*  
 function interactObject() {
   switch (actObject[0]) {
     case 2:
@@ -154,7 +157,7 @@ function interactObject() {
     default:
       break;
   }
-}
+} */
 //Actions
 
 //Miscellaneous 

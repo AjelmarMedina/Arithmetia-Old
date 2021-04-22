@@ -1,4 +1,5 @@
-function createColliderWall(mapY, mapX) {
+function createColliderWall(mapX, mapY) {
+  levelMap[mapY][mapX] = 1
   this.div = document.createElement('div')
   container.appendChild(this.div)
   let style = this.div.style
@@ -12,7 +13,7 @@ function createColliderWall(mapY, mapX) {
   style.border = '1px solid black'
 };
 
-function createObjType2(mapY, mapX) {
+function createObjType2(mapX, mapY) {
   this.div = document.createElement('div')
   container.appendChild(this.div)
   let style = this.div.style
@@ -31,10 +32,10 @@ window.onload = () => {
     levelMap[i].forEach((val, indx) => {
       switch (val) {
         case 1:
-          new createColliderWall(i, indx)
+          new createColliderWall(indx, i)
           break;
         case 2:
-          new createObjType2(i, indx)
+          new createObjType2(indx, i)
           break;
       };
     })
