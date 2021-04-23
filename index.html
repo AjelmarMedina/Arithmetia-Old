@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Arithmetia</title>
-  
   <!-- HTML -->
-  
-
   <!-- Custom Styles -->
   <!--link rel="stylesheet" href="style.css"-->
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
+
 <body>
-
-<div id="container">
-  
-  <div id="divMainPlayer"></div>
-</div><br>
-
-<div align="center" id="controls">
-  <button id="interactionBtn1" class="interactionBtns"></button>
-  <button class="controlBtns" align="center" onclick="moveObject(objMainPlayer, 1, -1)">^</button>
-  <button id="interactionBtn2" class="interactionBtns"></button>
-  <br>
-  <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, -1)"><</button>
-  <button class="controlBtns" onclick="moveObject(objMainPlayer, 1, 1)">v</button>
-  <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, 1)">></button>
-</div> 
-
-<div id="infoButton">
-  <button onclick="alertInfo()"><b>?</b></button>
-</div>
-
-<script src="mapCollection.js" type="text/javascript" charset="utf-8"></script>
-<script src="renderMap.js" type="text/javascript" charset="utf-8"></script>
-<script src="movementAndInteraction.js" type="text/javascript" charset="utf-8"></script>
-  
+  <div id="container">
+    <div id="divMainPlayer"></div>
+  </div><br>
+  <div align="center" id="controls">
+    <button onclick="alertInfo()" id="interactionBtn1" class="interactionBtns"></button>
+    <button class="controlBtns" align="center" onclick="moveObject(objMainPlayer, 1, -1)">^</button>
+    <button onclick="alertInfo()" id="interactionBtn2" class="interactionBtns"></button>
+    <br>
+    <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, -1)"><</button>
+    <button class="controlBtns" onclick="moveObject(objMainPlayer, 1, 1)">v</button>
+    <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, 1)">></button>
+  </div>
+  <div id="infoButton">
+    <button onclick="alertInfo()"><b>?</b></button>
+  </div>
+  <script src="mapCollection.js" type="text/javascript" charset="utf-8"></script>
+  <script src="renderMap.js" type="text/javascript" charset="utf-8"></script>
+  <script src="movementAndInteraction.js" type="text/javascript" charset="utf-8"></script>
 </body>
+
 </html>

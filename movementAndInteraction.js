@@ -1,8 +1,5 @@
 //Setup
 
-
-var actObject = [ /*type, playerlevelMapCoords*/ ];
-
 var movementBoundaries = {
   minXY: [0, 0],
   maxXY: [12, 15],
@@ -93,77 +90,19 @@ function interactObject(objInteractor) {
   }
 }
 function interactObjType2(objInteractor) {
-  objInteractor.testVariable = 'hello'
+  // objInteractor.testVariable = 'hello'
   new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-  console.log(objInteractor.testVariable);
+  levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
+  // console.log(objInteractor.testVariable);
 }
 function interactObjType3(objInteractor) {
   new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
   objInteractor.interactionType = undefined;
 }
 
-
-
-
-/*function control(direction) { 
-  if (acting == false) {
-    acting = true
-    switch (direction) {
-      case 1:
-        player.actY -= 25;
-        if (player.posY > 0 && checkColliders()) {
-          interval = setInterval(animatePlayerUp, 20);
-        } else {
-          player.actY += 25;
-          acting = false;
-        };
-        break;
-      case 2:
-        player.actX -= 25;
-        if (player.posX > 0 && checkColliders()) {
-          interval = setInterval(animatePlayerLeft,20);
-        } else {
-          player.actX += 25;
-          acting = false;
-        };
-        break;
-      case 3:
-        player.actY += 25;
-        if (player.posY < 375 && checkColliders()) {
-          interval = setInterval(animatePlayerDown,20);
-        } else {
-          player.actY -= 25;
-          acting = false;
-        };
-        break;
-      case 4:
-        player.actX += 25;
-        if (player.posX < 300 && checkColliders()) {
-          interval = setInterval(animatePlayerRight,20);
-        } else {
-          player.actX -= 25;
-          acting = false;
-        };
-        break;
-    };
-  };
-};*/
-
-
 //Movement
 
 //Actions
-/*  
-function interactObject() {
-  switch (actObject[0]) {
-    case 2:
-      levelMap[player.actY / 25][player.actX / 25] = 1;
-      new createColliderWall(player.actY / 25, player.actX / 25)
-      break;
-    default:
-      break;
-  }
-} */
 //Actions
 
 //Miscellaneous 
@@ -175,46 +114,6 @@ function alertInfo() {
 
 //Style
 //Animation
-/*function animatePlayerDown() {
-  if (player.posY < player.actY) {
-    player.posY += 5;
-    box.style.top = player.posY + 'px';
-  } else {
-    clearInterval(interval);
-    acting = false;
-    interactObject();
-  };
-};
-function animatePlayerUp() {
-  if (player.posY > player.actY) {
-    player.posY -= 5;
-    box.style.top = player.posY + 'px';
-  } else {
-    clearInterval(interval );
-    acting = false;
-    interactObject();
-  };
-};
-function animatePlayerRight() {
-  if (player.posX < player.actX ) {
-    player.posX += 5;
-    box.style.left = player.posX + 'px';
-  } else {
-    clearInterval(interval);
-    acting = false;
-    interactObject();
-  };
-};
-function animatePlayerLeft() {
-  if (player.posX > player.actX ) {
-    player.posX -= 5;
-    box.style.left = player.posX + 'px';
-  } else {
-    clearInterval(interval);
-    acting = false;
-    interactObject();
-  };
-};*/
 //Animations
 
 //Style

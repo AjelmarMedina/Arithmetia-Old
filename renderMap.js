@@ -1,5 +1,4 @@
 function createColliderWall(mapX, mapY) {
-  levelMap[mapY][mapX] = 1
   this.div = document.createElement('div')
   container.appendChild(this.div)
   let style = this.div.style
