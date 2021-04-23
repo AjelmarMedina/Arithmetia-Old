@@ -14,20 +14,48 @@
 
 <body>
   <div id="container">
-    <div id="divMainPlayer"></div>
-  </div><br>
+    <div id="divMainPlayer">
+      
+    </div>
+  </div>
+  
+  <br>
+  
   <div align="center" id="controls">
-    <button onclick="alertInfo()" id="interactionBtn1" class="interactionBtns"></button>
-    <button class="controlBtns" align="center" onclick="moveObject(objMainPlayer, 1, -1)">^</button>
-    <button onclick="alertInfo()" id="interactionBtn2" class="interactionBtns"></button>
+    <button onclick="alertInfo()" id="interactionBtn1" class="interactionBtns">
+      
+    </button>
+    <button class="controlBtns" align="center" onclick="moveObject(objMainPlayer, 1, -1)">
+      ^
+    </button>
+    <button onclick="alertInfo()" id="interactionBtn2" class="interactionBtns">
+      
+    </button>
+    
     <br>
-    <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, -1)"><</button>
-    <button class="controlBtns" onclick="moveObject(objMainPlayer, 1, 1)">v</button>
-    <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, 1)">></button>
+    
+    <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, -1)">
+      &#x3c
+    </button>
+    <button class="controlBtns" onclick="moveObject(objMainPlayer, 1, 1)">
+      v
+    </button>
+    <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, 1)">
+      &#x3e
+    </button>
   </div>
+  
   <div id="infoButton">
-    <button onclick="alertInfo()"><b>?</b></button>
+    <button onclick="alertInfo()">
+      <b>?</b>
+    </button>
   </div>
+  
+  
+  
+<!--  scripts   -->
+
+
   <script src="mapCollection.js" type="text/javascript" charset="utf-8"></script>
   <script src="renderMap.js" type="text/javascript" charset="utf-8"></script>
   <script src="movementAndInteraction.js" type="text/javascript" charset="utf-8"></script>
