@@ -22,10 +22,13 @@
 </div><br>
 
 <div align="center" id="controls">
-  <button align="center" onclick="moveObject(objMainPlayer, 1, -1)">^</button><br>
-  <button onclick="moveObject(objMainPlayer, 0, -1)"><</button>
-  <button onclick="moveObject(objMainPlayer, 1, 1)">v</button>
-  <button onclick="moveObject(objMainPlayer, 0, 1)">></button>
+  <button id="interactionBtn1" class="interactionBtns"></button>
+  <button class="controlBtns" align="center" onclick="moveObject(objMainPlayer, 1, -1)">^</button>
+  <button id="interactionBtn2" class="interactionBtns"></button>
+  <br>
+  <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, -1)"><</button>
+  <button class="controlBtns" onclick="moveObject(objMainPlayer, 1, 1)">v</button>
+  <button class="controlBtns" onclick="moveObject(objMainPlayer, 0, 1)">></button>
 </div> 
 
 <div id="infoButton">

@@ -75,10 +75,12 @@ function checkColliders(objToCheck) {
       break;
     case 2:
       objToCheck.interactionType = interactObjType2
-
       return true;
       break;
-
+    case 3:
+      objToCheck.interactionType = interactObjType3
+      break;
+    
     default:
       return true;
       break;
@@ -91,9 +93,13 @@ function interactObject(objInteractor) {
   }
 }
 function interactObjType2(objInteractor) {
-  //levelMap[objInteractor.actXY[0]][objInteractor.actXY[1]] = 1
+  objInteractor.testVariable = 'hello'
   new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-  
+  console.log(objInteractor.testVariable);
+}
+function interactObjType3(objInteractor) {
+  new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
+  objInteractor.interactionType = undefined;
 }
 
 

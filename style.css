@@ -1,6 +1,27 @@
 body {
     background-color: #12131A;
 }
+#interactionBtn1 {
+  background: red;
+}
+#interactionBtn2 {
+  background: yellow;
+} 
+.interactionBtns { 
+  border-radius: 30px;
+  /* background: red; */
+  position: relative ;
+  height: 50px;
+  width: 50px;
+  margin: 40px;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  bottom: 20px;
+  color: #fff;
+  font-size: 30px;
+  font-style: bold;
+}
+
 #container {
   width: 328px ;
   height: 403px;
@@ -26,7 +47,11 @@ body {
   border-radius: 7px;
   border: 1.5px solid black;
 }
-#controls button {
+#controls {
+  
+}
+.controlBtns {
+  border-radius: 10px;
   margin: 2px;
   height:70px;
   width: 70px ;
