@@ -95,12 +95,34 @@ function interactObjType2(objInteractor) {
   levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
   // console.log(objInteractor.testVariable);
 }
-function interactObjType3(objInteractor) {
-  new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-  objInteractor.interactionType = undefined;
-}
+
+
+// function interactObjType3(objInteractor) {
+//   new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
+//   objInteractor.interactionType = undefined;
+// }
 
 //Movement
+
+
+//Event Listeners
+
+var someInterval;
+  var divMainVar = document.querySelector('#divMain');
+  divMainVar.addEventListener('touchstart', (event) => {
+    event.preventDefault();
+    someInterval = setInterval(() => {
+      console.log('Success');
+    }, 1);
+  });
+  divMainVar.addEventListener('touchend', (event) => {
+    event.preventDefault();
+    window.clearInterval(someInterval);
+  });
+
+//Event Listeners
+
+
 
 //Actions
 //Actions
@@ -111,9 +133,3 @@ function alertInfo() {
 };
 //Miscellaneous 
 //Logic
-
-//Style
-//Animation
-//Animations
-
-//Style
