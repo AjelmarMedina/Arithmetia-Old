@@ -108,17 +108,19 @@ function interactObjType2(objInteractor) {
 //Event Listeners
 
 var someInterval;
-  var divMainVar = document.querySelector('#divMain');
-  divMainVar.addEventListener('touchstart', (event) => {
-    event.preventDefault();
-    someInterval = setInterval(() => {
-      console.log('Success');
-    }, 1);
-  });
-  divMainVar.addEventListener('touchend', (event) => {
-    event.preventDefault();
-    window.clearInterval(someInterval);
-  });
+var btnMoveDownVar = document.querySelector('#btnMoveDown');
+btnMoveDownVar.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+  someInterval = setInterval(() => {
+    console.log('Success');
+  }, 10);
+});
+window.addEventListener('touchend', (event) => {
+  event.preventDefault();
+  window.clearInterval(someInterval);
+});
+
+
 
 //Event Listeners
 

@@ -51,6 +51,7 @@ body {
   
 }
 .controlBtns {
+  user-select: none;
   border-radius: 10px;
   margin: 2px;
   height:70px;
