@@ -109,20 +109,67 @@ function interactObjType2(objInteractor) {
 
 var someInterval;
 var btnMoveDownVar = document.querySelector('#btnMoveDown');
+var btnMoveUpVar = document.querySelector('#btnMoveUp');
+var btnMoveLeftVar = document.querySelector('#btnMoveLeft');
+var btnMoveRightVar = document.querySelector('#btnMoveRight');
+
+
 btnMoveDownVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
-  btnMoveDownVar.style.backgroundColor = 'orange';
-  someInterval = setInterval(() => {
-    console.log('Success');
-  }, 10);
+  touchStarted(3)
 });
-btnMoveDownVar.addEventListener('touchend', (event) => {
+btnMoveUpVar.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+  touchStarted(1)
+});
+btnMoveLeftVar.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+  touchStarted(2)
+});
+btnMoveRightVar.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+  touchStarted(4)
+});
+
+
+
+window.addEventListener('touchend', (event) => {
   event.preventDefault();
   btnMoveDownVar.style.backgroundColor = 'white';
   window.clearInterval(someInterval);
 });
 
-
+function touchStarted(directionToMove) {
+  
+  switch (directionToMove) {
+    case 1:
+      btnMoveUpVar.style.backgroundColor = 'orange';
+      someInterval = setInterval(() => {
+        console.log('Up');
+      }, 10);
+      break;
+    case 2:
+      btnMoveLeftVar.style.backgroundColor = 'orange';
+      someInterval = setInterval(() => {
+        console.log('Left');
+      }, 10);
+      break;
+    case 3:
+      btnMoveDownVar.style.backgroundColor = 'orange';
+      someInterval = setInterval(() => {
+        console.log('Down');
+      }, 10);
+      break;
+    case 4:
+      btnMoveRightVar.style.backgroundColor = 'orange';
+      someInterval = setInterval(() => {
+        console.log('Right');
+      }, 10);
+      break;
+  }
+  
+  
+}
 
 //Event Listeners
 

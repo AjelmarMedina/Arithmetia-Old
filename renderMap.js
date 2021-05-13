@@ -39,5 +39,13 @@ window.onload = () => {
           break;
       };
     })
-  };
+    };
+    
+    
+    
+  var btnMoveDownVar = document.querySelector('#btnMoveDown');
+  var btnMoveUpVar = document.querySelector('#btnMoveUp');
+  var btnMoveLeftVar = document.querySelector('#btnMoveLeft');
+  var btnMoveRightVar = document.querySelector('#btnMoveRight');
+  
 };
