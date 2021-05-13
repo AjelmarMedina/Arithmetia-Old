@@ -111,12 +111,14 @@ var someInterval;
 var btnMoveDownVar = document.querySelector('#btnMoveDown');
 btnMoveDownVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
+  btnMoveDownVar.style.backgroundColor = 'orange';
   someInterval = setInterval(() => {
     console.log('Success');
   }, 10);
 });
-window.addEventListener('touchend', (event) => {
+btnMoveDownVar.addEventListener('touchend', (event) => {
   event.preventDefault();
+  btnMoveDownVar.style.backgroundColor = 'white';
   window.clearInterval(someInterval);
 });
 

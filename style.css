@@ -47,9 +47,6 @@ body {
   border-radius: 7px;
   border: 1.5px solid black;
 }
-#controls {
-  
-}
 .controlBtns {
   user-select: none;
   border-radius: 10px;
@@ -58,6 +55,7 @@ body {
   width: 70px ;
   font-size: 60px;
   font-style: bold;
+  background-color: white;
 }
 
 body :last-child div {
