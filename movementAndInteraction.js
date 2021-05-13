@@ -97,10 +97,10 @@ function interactObjType2(objInteractor) {
 }
 
 
-// function interactObjType3(objInteractor) {
-//   new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-//   objInteractor.interactionType = undefined;
-// }
+/*function interactObjType3(objInteractor) {
+  new createColliderWall(objInteractor c.actXY[0], objInteractor.actXY[1])
+  objInteractor.interactionType = undefined;
+}*/
 
 //Movement
 

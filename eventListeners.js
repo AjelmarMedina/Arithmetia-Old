@@ -32,6 +32,7 @@ btnMoveRightVar.addEventListener('click',()=>{
 
 btnMoveDownVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
+  window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 1, 1)
   }, 100); 
@@ -39,6 +40,7 @@ btnMoveDownVar.addEventListener('touchstart', (event) => {
 });
 btnMoveUpVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
+  window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 1, -1)
   }, 100);  
@@ -46,6 +48,7 @@ btnMoveUpVar.addEventListener('touchstart', (event) => {
 });
 btnMoveLeftVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
+  window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 0, -1)
   }, 100);
@@ -53,6 +56,7 @@ btnMoveLeftVar.addEventListener('touchstart', (event) => {
 });
 btnMoveRightVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
+  window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 0, 1)
   }, 100);
@@ -62,27 +66,30 @@ btnMoveRightVar.addEventListener('touchstart', (event) => {
 //TOUCHEND
 
 btnMoveUpVar.addEventListener('touchend', (event) => {
-      event.preventDefault();
-      btnMoveUpVar.style.backgroundColor = 'white';
-      window.clearInterval(eventListenerMovementInterval);
+  event.preventDefault();
+  btnMoveUpVar.style.backgroundColor = 'white';
+  window.clearInterval(eventListenerMovementInterval);
 });
 btnMoveLeftVar.addEventListener('touchend', (event) => {
-      event.preventDefault();
-      btnMoveLeftVar.style.backgroundColor = 'white';
-      window.clearInterval(eventListenerMovementInterval);
+  event.preventDefault();
+  btnMoveLeftVar.style.backgroundColor = 'white';
+  window.clearInterval(eventListenerMovementInterval);
 });
 btnMoveDownVar.addEventListener('touchend', (event) => {
-      event.preventDefault();
-      btnMoveDownVar.style.backgroundColor = 'white';
-      window.clearInterval(eventListenerMovementInterval);
+  event.preventDefault();
+  btnMoveDownVar.style.backgroundColor = 'white';
+  window.clearInterval(eventListenerMovementInterval);
 });
 btnMoveRightVar.addEventListener('touchend', (event) => {
-      event.preventDefault();
-      btnMoveRightVar.style.backgroundColor = 'white';
-      window.clearInterval(eventListenerMovementInterval);
+  event.preventDefault();
+  btnMoveRightVar.style.backgroundColor = 'white';
+  window.clearInterval(eventListenerMovementInterval);
 });
 
 //MISCELLANEOUS
+
+
+
 
 /*for (var i = 0; i < classControlButtonsArr.length; i++) {
   classControlButtonsArr[i].addEventListener('touchend', (event) => {
