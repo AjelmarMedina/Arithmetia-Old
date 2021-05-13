@@ -107,7 +107,7 @@ function interactObjType2(objInteractor) {
 
 //Event Listeners
 
-var someInterval;
+var eventListenerMovementInterval;
 var btnMoveDownVar = document.querySelector('#btnMoveDown');
 var btnMoveUpVar = document.querySelector('#btnMoveUp');
 var btnMoveLeftVar = document.querySelector('#btnMoveLeft');
@@ -132,44 +132,69 @@ btnMoveRightVar.addEventListener('touchstart', (event) => {
 });
 
 
+var classControlButtonsArr = document.getElementsByClassName('controlBtns')
 
-window.addEventListener('touchend', (event) => {
-  event.preventDefault();
-  btnMoveDownVar.style.backgroundColor = 'white';
-  window.clearInterval(someInterval);
+
+btnMoveUpVar.addEventListener('touchend', (event) => {
+      event.preventDefault();
+      btnMoveUpVar.style.backgroundColor = 'white';
+      window.clearInterval(eventListenerMovementInterval);
+});
+btnMoveLeftVar.addEventListener('touchend', (event) => {
+      event.preventDefault();
+      btnMoveLeftVar.style.backgroundColor = 'white';
+      window.clearInterval(eventListenerMovementInterval);
+});
+btnMoveDownVar.addEventListener('touchend', (event) => {
+      event.preventDefault();
+      btnMoveDownVar.style.backgroundColor = 'white';
+      window.clearInterval(eventListenerMovementInterval);
+});
+btnMoveRightVar.addEventListener('touchend', (event) => {
+      event.preventDefault();
+      btnMoveRightVar.style.backgroundColor = 'white';
+      window.clearInterval(eventListenerMovementInterval);
 });
 
+
+/*for (var i = 0; i < classControlButtonsArr.length; i++) {
+  classControlButtonsArr[i].addEventListener('touchend', (event) => {
+    event.preventDefault();
+    console.log(i);
+    console.log(classControlButtonsArr[i]);
+    // classControlButtonsArr[i].style.backgroundColor = 'white';
+    window.clearInterval(eventListenerMovementInterval);
+  });
+} */
+
 function touchStarted(directionToMove) {
-  
   switch (directionToMove) {
     case 1:
       btnMoveUpVar.style.backgroundColor = 'orange';
-      someInterval = setInterval(() => {
+      eventListenerMovementInterval = setInterval(() => {
         console.log('Up');
       }, 10);
       break;
     case 2:
       btnMoveLeftVar.style.backgroundColor = 'orange';
-      someInterval = setInterval(() => {
+      eventListenerMovementInterval = setInterval(() => {
         console.log('Left');
       }, 10);
       break;
     case 3:
       btnMoveDownVar.style.backgroundColor = 'orange';
-      someInterval = setInterval(() => {
+      eventListenerMovementInterval = setInterval(() => {
         console.log('Down');
       }, 10);
       break;
     case 4:
       btnMoveRightVar.style.backgroundColor = 'orange';
-      someInterval = setInterval(() => {
+      eventListenerMovementInterval = setInterval(() => {
         console.log('Right');
       }, 10);
       break;
-  }
-  
-  
-}
+  };
+};
 
 //Event Listeners
 

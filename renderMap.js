@@ -41,11 +41,8 @@ window.onload = () => {
     })
     };
     
+    // console.log(classControlButtonsArr);
     
-    
-  var btnMoveDownVar = document.querySelector('#btnMoveDown');
-  var btnMoveUpVar = document.querySelector('#btnMoveUp');
-  var btnMoveLeftVar = document.querySelector('#btnMoveLeft');
-  var btnMoveRightVar = document.querySelector('#btnMoveRight');
+  
   
 };
