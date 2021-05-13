@@ -35,7 +35,7 @@ btnMoveDownVar.addEventListener('touchstart', (event) => {
   window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 1, 1)
-  }, 100); 
+  }, 180); 
   btnMoveDownVar.style.backgroundColor = 'orange';
 });
 btnMoveUpVar.addEventListener('touchstart', (event) => {
@@ -43,7 +43,7 @@ btnMoveUpVar.addEventListener('touchstart', (event) => {
   window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 1, -1)
-  }, 100);  
+  }, 180);  
   btnMoveUpVar.style.backgroundColor = 'orange';
 });
 btnMoveLeftVar.addEventListener('touchstart', (event) => {
@@ -51,7 +51,7 @@ btnMoveLeftVar.addEventListener('touchstart', (event) => {
   window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 0, -1)
-  }, 100);
+  }, 180);
   btnMoveLeftVar.style.backgroundColor = 'orange';
 });
 btnMoveRightVar.addEventListener('touchstart', (event) => {
@@ -59,7 +59,7 @@ btnMoveRightVar.addEventListener('touchstart', (event) => {
   window.clearInterval(eventListenerMovementInterval);
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 0, 1)
-  }, 100);
+  }, 180);
   btnMoveRightVar.style.backgroundColor = 'orange';
 });
 
