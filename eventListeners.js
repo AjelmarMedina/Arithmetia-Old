@@ -33,6 +33,7 @@ btnMoveRightVar.addEventListener('click',()=>{
 btnMoveDownVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
   window.clearInterval(eventListenerMovementInterval);
+    moveObject(objMainPlayer, 1, 1)
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 1, 1)
   }, 180); 
@@ -41,6 +42,7 @@ btnMoveDownVar.addEventListener('touchstart', (event) => {
 btnMoveUpVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
   window.clearInterval(eventListenerMovementInterval);
+    moveObject(objMainPlayer, 1, -1)
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 1, -1)
   }, 180);  
@@ -49,6 +51,7 @@ btnMoveUpVar.addEventListener('touchstart', (event) => {
 btnMoveLeftVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
   window.clearInterval(eventListenerMovementInterval);
+    moveObject(objMainPlayer, 0, -1)
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 0, -1)
   }, 180);
@@ -57,6 +60,7 @@ btnMoveLeftVar.addEventListener('touchstart', (event) => {
 btnMoveRightVar.addEventListener('touchstart', (event) => {
   event.preventDefault();
   window.clearInterval(eventListenerMovementInterval);
+    moveObject(objMainPlayer, 0, 1)
   eventListenerMovementInterval = setInterval(() => {
     moveObject(objMainPlayer, 0, 1)
   }, 180);
