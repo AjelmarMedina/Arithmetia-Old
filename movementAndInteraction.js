@@ -68,7 +68,11 @@ function checkColliders(objToCheck) {
       return true;
       break;
     case 1:
-      return false;
+      if (objToCheck.interactionType == interactObjType3) {
+        return true
+      } else {
+        return false
+      }
       break;
     case 2:
       objToCheck.interactionType = interactObjType2
@@ -76,6 +80,7 @@ function checkColliders(objToCheck) {
       break;
     case 3:
       objToCheck.interactionType = interactObjType3
+      return true
       break;
     
     default:
@@ -90,17 +95,21 @@ function interactObject(objInteractor) {
   }
 }
 function interactObjType2(objInteractor) {
-  // objInteractor.testVariable = 'hello'
-  new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-  levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
-  // console.log(objInteractor.testVariable);
+  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 0 ) {
+    new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
+    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
+  }
+  
 }
 
-
-/*function interactObjType3(objInteractor) {
-  new createColliderWall(objInteractor c.actXY[0], objInteractor.actXY[1])
-  objInteractor.interactionType = undefined;
-}*/
+function interactObjType3(objInteractor) {
+  
+  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 1) {
+    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 0;
+    let objToRemove = document.getElementById(objInteractor.actXY[0] + '_' + objInteractor.actXY[1])
+    container.removeChild(objToRemove)
+  }
+}
 
 //Movement
 
