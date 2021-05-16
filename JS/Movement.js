@@ -8,7 +8,7 @@ let objMainPlayer = {
   actXY: [6, 1],
   styleXY: [150, 25],
   acting: false,
-  interactionType: undefined,
+  interactionTypeFunc: undefined,
   htmlStyleEquiv: divMainPlayer
 };
 
@@ -61,68 +61,6 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
     }
   }
 }
-function checkColliders(objToCheck) {
-  let playerMapCoords = levelMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
-  switch (playerMapCoords) {
-    case 0:
-      return true;
-      break;
-    case 1:
-      if (objToCheck.interactionType == interactObjType3) {
-        return true
-      } else {
-        return false
-      }
-      break;
-    case 2:
-      objToCheck.interactionType = interactObjType2
-      return true;
-      break;
-    case 3:
-      objToCheck.interactionType = interactObjType3
-      return true
-      break;
-    
-    default:
-      return true;
-      break;
-  };
-};
 
-function interactObject(objInteractor) {
-  if (objInteractor.interactionType != undefined) {
-    objInteractor.interactionType(objInteractor)
-  }
-}
-function interactObjType2(objInteractor) {
-  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 0 ) {
-    new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
-  }
-  
-}
-
-function interactObjType3(objInteractor) {
-  
-  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 1) {
-    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 0;
-    let objToRemove = document.getElementById(objInteractor.actXY[0] + '_' + objInteractor.actXY[1])
-    container.removeChild(objToRemove)
-  }
-}
-
-//Movement
-
-
-
-
-
-//Actions
-//Actions
-
-//Miscellaneous 
-function alertInfo() {
-  alert("No Copyright infringement intended; Programmed and designed by Lejionnaire (OmegaCool)")
-};
 //Miscellaneous 
 //Logic
