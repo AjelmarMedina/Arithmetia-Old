@@ -13,7 +13,7 @@ let objMainPlayer = {
 };
 
 
-//Setup
+
 
 //Logic
 //Movement
@@ -62,5 +62,5 @@ function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
   }
 }
 
-//Miscellaneous 
-//Logic
+
+
