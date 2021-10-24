@@ -63,6 +63,13 @@ window.onload = () => {
     
     // console.log(classControlButtonsArr);
     
-  
-  
+  renderEntityObj(objMainPlayer);
 };
+
+function renderEntityObj(entityObj) {
+  entityObj.styleXY[0] = entityObj.actXY[0] * 25;
+  entityObj.styleXY[1] = entityObj.actXY[1] * 25;
+  entityObj.htmlStyleEquiv.style.top = entityObj.styleXY[0] - 1;
+  entityObj.htmlStyleEquiv.style.left = entityObj.styleXY[1] - 1;
+
+}

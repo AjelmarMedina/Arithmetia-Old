@@ -6,7 +6,7 @@ var movementBoundaries = {
 }
 let objMainPlayer = {
   actXY: [6, 1],
-  styleXY: [150, 25],
+  styleXY: [0, 0],
   acting: false,
   interactionTypeFunc: undefined,
   htmlStyleEquiv: divMainPlayer

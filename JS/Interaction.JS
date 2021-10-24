@@ -31,16 +31,15 @@ function interactObject(objInteractor) {
     objInteractor.interactionTypeFunc(objInteractor)
   }
 }
+
+
 function interactObjType2(objInteractor) {
   if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 0 ) {
     new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
     levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
   }
-  
 }
-
 function interactObjType3(objInteractor) {
-  
   if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 1) {
     levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 0;
     let objToRemove = document.getElementById(objInteractor.actXY[0] + '_' + objInteractor.actXY[1])
@@ -67,7 +66,9 @@ function setInteractionTypeDefault(obj) {
 //Miscellaneous 
 function alertInfo() {
   alert("No Copyright infringement intended; Programmed and designed by Lejionnaire (OmegaCool)")
-};function checkColliders(objToCheck) {
+};
+
+function checkColliders(objToCheck) {
   let playerMapCoords = levelMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
   switch (playerMapCoords) {
     case 0:
