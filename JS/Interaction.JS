@@ -48,6 +48,13 @@ function interactObjType3(objInteractor) {
   }
 }
 
+
+
+function setInteractionTypeDefault(obj) {
+  obj.interactionTypeFunc = undefined;
+};
+
+
 //Movement
 
 

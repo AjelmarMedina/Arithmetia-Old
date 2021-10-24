@@ -2,7 +2,7 @@ function createColliderWall(mapX, mapY) {
   this.div = document.createElement('div')
   container.appendChild(this.div)
   let style = this.div.style
-  //style.background = 'url("Images/Wall.png")'
+  style.background = 'url("Images/Wall.png")'
   
   this.div.id = mapX + '_' + mapY;
   style.zIndex = 0;
@@ -12,7 +12,7 @@ function createColliderWall(mapX, mapY) {
   style.top = (mapY * 25) + 'px'
   style.left = (mapX * 25) + 'px'
   style.position = 'absolute'
-  style.border = '1px solid black'
+  // style.border = '1px solid black'
 };
 
 function createObjType2(mapX, mapY) {
