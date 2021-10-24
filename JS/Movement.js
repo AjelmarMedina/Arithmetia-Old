@@ -5,7 +5,7 @@ var movementBoundaries = {
   maxXY: [12, 15],
 }
 let objMainPlayer = {
-  actXY: [6, 1],
+  actXY: [2, -1],
   styleXY: [0, 0],
   acting: false,
   interactionTypeFunc: undefined,
