@@ -17,7 +17,7 @@ let objMainPlayer = {
 
 //Logic
 //Movement
-function moveObject(objToMove, axisToMoveOn, directionToMoveTo) {
+function moveEntity(objToMove, axisToMoveOn, directionToMoveTo) {
   if (objToMove.acting == false) {
     objToMove.acting = true
     let animationInterval;
