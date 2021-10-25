@@ -43,9 +43,12 @@ function createObjType3(mapX, mapY) {
 };
 
 
-window.onload = () => {
-  for (let i in levelMap) {
-    levelMap[i].forEach((val, indx) => {
+window.onload = () => { 
+  renderLevelSprites(spriteMap);
+};
+function renderLevelSprites(levelToRender) {
+  for (let i in levelToRender) {
+    levelToRender[i].forEach((val, indx) => {
       switch (val) {
         case 1:
           new createColliderWall(indx, i)
@@ -60,13 +63,7 @@ window.onload = () => {
       };
     })
     };
-    
-    // console.log(classControlButtonsArr);
-    
   renderEntityObj(objMainPlayer);
-};
-function renderLevelSprites(levelToRender) {
-  
 }
 
 function renderEntityObj(entityObj) {

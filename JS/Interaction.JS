@@ -1,5 +1,5 @@
 function checkColliders(objToCheck) {
-  let playerMapCoords = levelMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
+  let playerMapCoords = objsMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
   switch (playerMapCoords) {
     case 0:
       return true;
@@ -34,14 +34,14 @@ function interactObject(objInteractor) {
 
 
 function interactObjType2(objInteractor) {
-  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 0 ) {
+  if (objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 0 ) {
     new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
+    objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
   }
 }
 function interactObjType3(objInteractor) {
-  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 1) {
-    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 0;
+  if (objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 1) {
+    objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 0;
     let objToRemove = document.getElementById(objInteractor.actXY[0] + '_' + objInteractor.actXY[1])
     container.removeChild(objToRemove)
   }
@@ -69,7 +69,7 @@ function alertInfo() {
 };
 
 function checkColliders(objToCheck) {
-  let playerMapCoords = levelMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
+  let playerMapCoords = objsMap[objToCheck.actXY[1]][objToCheck.actXY[0]];
   switch (playerMapCoords) {
     case 0:
       return true;
@@ -102,17 +102,17 @@ function interactObject(objInteractor) {
   }
 }
 function interactObjType2(objInteractor) {
-  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 0 ) {
+  if (objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 0 ) {
     new createColliderWall(objInteractor.actXY[0], objInteractor.actXY[1])
-    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
+    objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 1
   }
   
 }
 
 function interactObjType3(objInteractor) {
   
-  if (levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 1) {
-    levelMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 0;
+  if (objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] == 1) {
+    objsMap[objInteractor.actXY[1]][objInteractor.actXY[0]] = 0;
     let objToRemove = document.getElementById(objInteractor.actXY[0] + '_' + objInteractor.actXY[1])
     container.removeChild(objToRemove)
   }
