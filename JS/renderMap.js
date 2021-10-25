@@ -63,7 +63,7 @@ function renderLevelSprites(levelToRender) {
       };
     })
     };
-  renderEntityObj(objMainPlayer);
+  renderEntityObj(entityMainPlayer);
 }
 
 function renderEntityObj(entityObj) {

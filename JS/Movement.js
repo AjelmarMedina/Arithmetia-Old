@@ -4,7 +4,7 @@ var movementBoundaries = {
   minXY: [0, 0],
   maxXY: [12, 15],
 }
-let objMainPlayer = {
+let entityMainPlayer = {
   actXY: [2, -1],
   styleXY: [0, 0],
   acting: false,
