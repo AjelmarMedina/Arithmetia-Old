@@ -63,12 +63,26 @@ function renderLevelSprites(levelToRender) {
       };
     })
     };
-  renderEntityObj(entityMainPlayer);
+  renderEntities(entityMainPlayer);
 }
 
-function renderEntityObj(entityObj) {
-  entityObj.styleXY[0] = entityObj.actXY[0] * 25;
-  entityObj.styleXY[1] = entityObj.actXY[1] * 25;
-  entityObj.htmlStyleEquiv.style.top = (entityObj.styleXY[1] - 1) + 'px';
-  entityObj.htmlStyleEquiv.style.left = (entityObj.styleXY[0] - 1) + 'px';
+function renderEntities() {
+  
+  for (let yCoord = 0; yCoord < entityMap.length; yCoord++) {
+    for (let xCoord = 0; xCoord < entityMap[yCoord].length; xCoord++) {
+      switch (entityMap[yCoord][xCoord]) {
+        case 1:
+          entityMainPlayer.actXY[0] = xCoord;
+          entityMainPlayer.actXY[1] = yCoord;
+          entityMainPlayer.styleXY[0] = entityMainPlayer.actXY[0] * 25;
+          entityMainPlayer.styleXY[1] = entityMainPlayer.actXY[1] * 25;
+          entityMainPlayer.htmlStyleEquiv.style.top = (entityMainPlayer.styleXY[1] - 1) + 'px';
+          entityMainPlayer.htmlStyleEquiv.style.left = (entityMainPlayer.styleXY[0] - 1) + 'px';
+          break;
+        
+      }
+    }
+  }
+  
+  
 }
